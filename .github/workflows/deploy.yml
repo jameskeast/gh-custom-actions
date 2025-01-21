@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Load & cache dependencies
         # The "action.yaml" part of this is implied.
-        uses: ./.github/actoins/cached-deps
+        uses: ./.github/actions/cached-deps
       - name: Lint code
         run: npm run lint
   test:
