@@ -12,6 +12,9 @@ jobs:
       - name: Load & cache dependencies
         # The "action.yaml" part of this is implied.
         uses: ./.github/actions/cached-deps
+        with:
+            # For demo purposes, we are disabling caching in the lint job.
+            caching: false
       - name: Lint code
         run: npm run lint
   test:
