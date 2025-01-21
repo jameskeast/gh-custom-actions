@@ -10,11 +10,14 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Load & cache dependencies
+        id: cache-deps
         # The "action.yaml" part of this is implied.
         uses: ./.github/actions/cached-deps
         with:
             # For demo purposes, we are disabling caching in the lint job.
             caching: false
+      - name: Output Info
+        run: echo  "Cache used? ${{ steps.cache-deps.outputs.cache-hit }}"
       - name: Lint code
         run: npm run lint
   test:
